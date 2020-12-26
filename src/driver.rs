@@ -128,9 +128,9 @@ impl SyntaxError {
         list.sort();
         for (i, t) in list.iter().enumerate() {
             if i > 0 {
-                try!(write!(fmt, ", "));
+                write!(fmt, ", ")?;
             }
-            try!(write!(fmt, "'{}'", t));
+            write!(fmt, "'{}'", t)?;
         }
 
         Ok(())
@@ -139,11 +139,11 @@ impl SyntaxError {
 
 impl fmt::Display for SyntaxError {
     fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
-        try!(write!(
+        write!(
             fmt,
             "unexpected token at line {} column {}, expected ",
             self.line, self.column
-        ));
+        )?;
         self.format_expected(fmt)
     }
 }
@@ -160,7 +160,7 @@ pub fn parse_ext<P: AsRef<Path>, T: Name>(config: &Config, source: P) -> Result<
         Err(e) => return Err(Error::PreprocessorError(e)),
     };
 
-    Ok(try!(parse_preprocessed_ext(config, processed)))
+    Ok(parse_preprocessed_ext(config, processed)?)
 }
 
 /// Parse Preprocessed Code in String
@@ -203,7 +203,7 @@ fn preprocess(config: &Config, source: &Path) -> io::Result<String> {
 
     cmd.arg(source);
 
-    let output = try!(cmd.output());
+    let output = cmd.output()?;
 
     if output.status.success() {
         match String::from_utf8(output.stdout) {
