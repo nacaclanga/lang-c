@@ -1,13 +1,13 @@
-// Written for peg 0.5.4
+// Written for peg 0.5.7
 
 // Notice, that we use a generic type parameter T: ast::Name at various points in this grammar
 // The rust-peg output must be postprocessed to ensure, that a valid grammar is generated.
 #![arguments(env: &mut Env<T>)]
 
-use ast::*;
-use astutil::*;
-use env::{Env, Symbol};
-use span::{Node, Span};
+use crate::ast::*;
+use crate::astutil::*;
+use crate::env::{Env, Symbol};
+use crate::span::{Node, Span};
 
 ////
 // Prologue

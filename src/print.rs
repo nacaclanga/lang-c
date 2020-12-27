@@ -12,9 +12,9 @@
 //! ```
 use std::fmt;
 
-use ast::*;
-use span::Span;
-use visit::*;
+use crate::ast::*;
+use crate::span::Span;
+use crate::visit::*;
 
 /// Printing visitor
 ///

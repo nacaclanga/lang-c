@@ -8,11 +8,11 @@ use std::io::{BufRead, BufReader, BufWriter, Write};
 use std::mem;
 use std::path::PathBuf;
 
-use env::Env;
-use parser;
-use print::Printer;
-use span::Span;
-use visit::Visit;
+use crate::env::Env;
+use crate::parser;
+use crate::print::Printer;
+use crate::span::Span;
+use crate::visit::Visit;
 
 struct Case {
     path: PathBuf,

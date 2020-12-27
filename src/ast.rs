@@ -20,7 +20,7 @@
 //! - statement expressions
 //! - `typeof` type specifiers
 
-use span::Node;
+use crate::span::Node;
 
 /// Trait that specifies types which can be used for Identifiers and type names
 pub trait Name: std::fmt::Debug + PartialEq + Eq + std::hash::Hash + Clone {

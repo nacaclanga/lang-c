@@ -7,10 +7,10 @@ use std::io;
 use std::path::Path;
 use std::process::Command;
 
-use ast::Name;
-use ast::TranslationUnit;
-use env::Env;
-use parser::translation_unit;
+use crate::ast::Name;
+use crate::ast::TranslationUnit;
+use crate::env::Env;
+use crate::parser::translation_unit;
 
 /// Parser configuration
 #[derive(Clone, Debug)]
