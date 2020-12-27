@@ -1144,7 +1144,7 @@ scoped<e> = ({ env.enter_scope(); }) e:e? {? env.leave_scope(); e.ok_or("") }
 pub translation_unit -> TranslationUnit<T> =
     directive? _ d:list0<node<external_declaration>> _ { TranslationUnit(d) }
 
-external_declaration -> ExternalDeclaration<T> =
+pub external_declaration -> ExternalDeclaration<T> =
     d:declaration { ExternalDeclaration::Declaration(d) } /
     s:static_assert { ExternalDeclaration::StaticAssert(s) } /
     d:scoped<node<function_definition>> { ExternalDeclaration::FunctionDefinition(d) }

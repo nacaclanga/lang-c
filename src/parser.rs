@@ -17518,3 +17518,18 @@ pub fn translation_unit<'input, T: Name>(__input: &'input str, env: &mut Env<T>)
     let (__line, __col) = pos_to_line(__input, __state.max_err_pos);
     Err(ParseError { line: __line, column: __col, offset: __state.max_err_pos, expected: __state.expected })
 }
+
+pub fn external_declaration<'input, T: Name>(__input: &'input str, env: &mut Env<T>) -> ParseResult<ExternalDeclaration<T>> {
+    #![allow(non_snake_case, unused)]
+    let mut __state = ParseState::new();
+    match __parse_external_declaration(__input, &mut __state, 0, env) {
+        Matched(__pos, __value) => {
+            if __pos == __input.len() {
+                return Ok(__value);
+            }
+        }
+        _ => {}
+    }
+    let (__line, __col) = pos_to_line(__input, __state.max_err_pos);
+    Err(ParseError { line: __line, column: __col, offset: __state.max_err_pos, expected: __state.expected })
+}
