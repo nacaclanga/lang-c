@@ -1,4 +1,3 @@
-extern crate lang_c;
 use lang_c::ast::*;
 use std::mem::size_of;
 

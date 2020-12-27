@@ -1,5 +1,3 @@
-extern crate lang_c;
-
 use lang_c::driver;
 use std::time::Instant;
 

@@ -1,9 +1,8 @@
 //! Parse a C file and dump the AST.
 
-extern crate lang_c;
-
 use std::process::exit;
 
+use lang_c;
 use lang_c::driver::Config;
 use lang_c::visit::Visit;
 
